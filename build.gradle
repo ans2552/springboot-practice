@@ -12,7 +12,13 @@ repositories {
     jcenter()
 }
 
+// for Junit 5
+test { // (2)
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation 'junit:junit:4.13.1'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
