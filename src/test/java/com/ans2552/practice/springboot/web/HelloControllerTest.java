@@ -23,4 +23,11 @@ public class HelloControllerTest {
 
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
     }
+
+    @Test
+    public void returnHello2() throws  Exception {
+        String hello2 = "hello2";
+
+        mvc.perform(get("/hello2?id=1&password=3")).andExpect(status().isOk()).andExpect(content().string(hello2));
+    }
 }
