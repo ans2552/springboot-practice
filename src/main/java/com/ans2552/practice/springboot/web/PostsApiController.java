@@ -1,6 +1,7 @@
 package com.ans2552.practice.springboot.web;
 
 import com.ans2552.practice.springboot.service.posts.PostsService;
+import com.ans2552.practice.springboot.web.dto.PostsResponseDto;
 import com.ans2552.practice.springboot.web.dto.PostsSaveRequestDto;
 import com.ans2552.practice.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,11 @@ public class PostsApiController {
 
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable long id, @RequestBody PostsUpdateRequestDto requestDto) {
-        return postsService.update(id,requestDto);
+        return postsService.update(id, requestDto);
     }
 
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable long id) {
+        return postsService.findById(id);
+    }
 }
